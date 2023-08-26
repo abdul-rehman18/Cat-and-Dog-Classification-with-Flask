@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Color Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Car Color Classifier</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+    {% if filename %}
+        <h2>Uploaded Image:</h2>
+        <img src="{{ url_for('static', filename='images/' + filename) }}" alt="Uploaded Image" class="uploaded-image">
+        {% if predicted_color %}
+            <h2>Predicted Class: <span class="predicted-color">{{ predicted_color }}</span></h2>
+        {% endif %}
+    {% endif %}
+    {% if error %}
+        <p class="error-message">{{ error }}</p>
+    {% endif %}
+    {% if confusion_matrix_img %}
+        <h2>Confusion Matrix:</h2>
+        <img src="{{ url_for('static', filename='images/confusion_matrix.png') }}" alt="Confusion Matrix" class="confusion-matrix">
+    {% endif %}
+
+    {% if f1_score %}
+        <h2 class="f1-score">F1 Score: {{ f1_score }}</h2>
+    {% endif %}
+
+    {% if accuracy %}
+        <h2 class="accuracy">Accuracy: {{ accuracy }}</h2>
+    {% endif %}
+    
+</body>
+</html>
