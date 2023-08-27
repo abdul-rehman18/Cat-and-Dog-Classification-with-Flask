@@ -24,6 +24,7 @@
         <h2>Confusion Matrix:</h2>
         <img src="{{ url_for('static', filename='images/confusion_matrix.png') }}" alt="Confusion Matrix" class="confusion-matrix">
     {% endif %}
+    
 
     {% if f1_score %}
         <h2 class="f1-score">F1 Score: {{ f1_score }}</h2>
