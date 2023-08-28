@@ -10,6 +10,7 @@ Before you run the code, make sure you have the following dependencies installed
 - seaborn
 - matplotlib
 - numpy
+- PIL (Python Imaging Library)
 
 You can install these dependencies using the following command:
 
